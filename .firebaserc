@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "food-project-fa77d",
+    "food": "food-project-fa77d"
+  },
+  "targets": {}
+}

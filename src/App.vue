@@ -4,21 +4,25 @@
       <div class="d-flex align-center">
         
 
-        <v-toolbar-title class="pointer" @click="goto('/')">Ingredient</v-toolbar-title>&nbsp;&nbsp;
-        &nbsp;&nbsp;
-        &nbsp;&nbsp;
-        
+      
 
         <v-toolbar-title class="pointer" @click="goto('/Calendar')">Calendar list </v-toolbar-title>
         &nbsp;&nbsp;
         &nbsp;&nbsp;
 
-        
+
+        <v-toolbar-title   depressed class="pointer" @click="goto('/')">Food Storage </v-toolbar-title>
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
+
+        <v-toolbar-title   depressed class="pointer" @click="goto('/Food')">Ingredient</v-toolbar-title>&nbsp;&nbsp;
+        &nbsp;&nbsp;
+        &nbsp;&nbsp;
       
 
         <v-btn v-if="!signInState" depressed color="success" @click="goto('/signinform')">Sign In</v-btn>
 
-        <v-btn v-else depressed color="success" @click="SignOut">Sign Out</v-btn>
+        <v-btn v-if="signInState" depressed color="success" @click="SignOut">Sign Out</v-btn>
         &nbsp;&nbsp;
         &nbsp;&nbsp;
 
@@ -91,6 +95,7 @@ export default {
       { title: "Profile", icon: "mdi-forum", link: "/profile" },
     ],
     signInState: false,
+    Admin: false,
   }),
 
   methods: {
@@ -120,7 +125,7 @@ export default {
           // https://firebase.google.com/docs/reference/js/firebase.User 
           console.log(user);
           this.signInState = true;
-          // ... 
+
         } else {
           this.signInState = false;
           // User is signed out 

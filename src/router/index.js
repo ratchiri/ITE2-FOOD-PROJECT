@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import About from "../views/About.vue";
-
-import Home from "../views/Food.vue" 
+import Home from "../views/Foodstorage";
+import Food from "../views/Food.vue" 
 import SigninForm from "../views/SigninForm.vue" 
 import Profile from "../views/Profile.vue" 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -11,14 +11,14 @@ import Calendar from "../views/Calendar.vue"
 Vue.use(VueRouter);
 
 const routes = [
+  
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: "/Food",
+    name: "Food",
+    component: Food,
     meta: { 
       requiresAuth: true, },
   },
-
 
   {
     path: "/signinform",
@@ -47,6 +47,14 @@ const routes = [
       requiresAuth: true, },
   },
 
+
+  {
+    path: "/",
+    name: "foodstorage",
+    component: Home,
+    meta: { 
+      requiresAuth: true, },
+  },
   
   
   
@@ -85,3 +93,4 @@ router.beforeEach((to, from, next) => {
 });
 
 export default router;
+
